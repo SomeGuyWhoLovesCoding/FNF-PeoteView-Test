@@ -2,7 +2,7 @@
 <project>
 	<meta title="Friday Night Funkin': Peote View" package="peote.view" version="0.1.0" company="Sylvio Sell - maitag" />
 
-	<window width="1280" height="720" fps="61" allowHighDPI="false" resizable="false" />
+	<window width="1280" height="720" fps="61" allowHighDPI="false" resizable="false" hardware="true" />
 	<window if="html5||android" width="0" height="0" />
 
 	<app main="Main" path="bin" file="fopv" />
@@ -21,6 +21,9 @@
 	<!-- for html5 and loading inside onPreloadComplete-event the assets need to be embed=true --> 
 	<assets path="assets" exclude="lime.svg" embed="false" />
 	<assets path="assets" exclude="lime.png" embed="false" />
+
+	<!-- prevent JIT ERROR 0 (jit.c line 541) -->
+	<haxeflag name="-dce" value="full" />
 
 	<icon path="assets/lime.svg" />
 </project>

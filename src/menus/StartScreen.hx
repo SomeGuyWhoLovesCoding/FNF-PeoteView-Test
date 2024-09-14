@@ -1,30 +1,28 @@
 package menus;
 
+import sys.io.File;
+
 /**
  * The start screen.
  */
 class StartScreen extends State {
     var bg:Sprite;
     var logo:Sprite;
-
+    
     override function new() {
         super();
 
         bg = new Sprite();
-        bg.w = Screen.display.width;
-        bg.h = Screen.display.height;
-        bg.c = 0x000044FF;
-        add(bg);
+        logo = new Sprite();
 
-        logo = new Sprite().loadTextureFromFile("assets/test0.png");
-        logo.x = 300;
-        logo.y = 200;
-        add(logo);
+        // init a texture in the program which the elements in the buffer will render
+        TexturePool.createTexture("test0", logo.program, "assets/test0.png");
     }
 
     override function updateState(deltaTime:Int) {
-        logo.r += 3;
         super.updateState(deltaTime);
+
+        logo.r += 3;
     }
 
     override function onKeyDown(keyCode, keyModifier) {

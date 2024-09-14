@@ -5,12 +5,13 @@ import peote.view.Buffer;
 import peote.view.Display;
 import peote.view.Program;
 import peote.view.Color;
+import utils.Loader;
 
 /**
  * The state.
  */
 @:publicFields
-class State extends Buffer<Sprite> {
+class State {
     /**
      * The static instance of the state.
      */
@@ -21,28 +22,20 @@ class State extends Buffer<Sprite> {
      * If the value is true, the old state will be freed up from memory immediately, and other stuff that has no referneces left on it will.
      */
     static var useGC:Bool = false;
-
+    
+    
     /**
      * Constructs a state.
      */
-    override function new() {
-        super(1, 1, true);
-    }
+    function new() {}
 
-    /**
-     * Add an element to the state.
-     * @param spr 
-     */
-    inline function add(spr:Sprite) {
-        addElement(spr);
-    }
 
     /**
      * Updates the state.
      * @param deltaTime 
      */
     function updateState(deltaTime:Int) {
-        update();
+        // todo ?
     }
 
     /**

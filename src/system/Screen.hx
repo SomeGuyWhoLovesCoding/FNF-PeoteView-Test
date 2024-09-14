@@ -23,16 +23,9 @@ class Screen extends Display {
 	static var display:Display;
 
 	/**
-	 * The program of the screen.
-	 */
-	static var program:Program;
-
-	/**
 	 * Initialize the screen.
 	 */
 	static function init(window:Window) {
-		program = new Program(State.current);
-
 		view = new PeoteView(window);
 		display = new Display(0, 0, window.width, window.height, 0x00000000);
 
@@ -42,21 +35,12 @@ class Screen extends Display {
 	}
 
 	/**
-	 * Updates the screen's display and program.
-	 */
-	static function updateDisplay() {
-		display.addProgram(program);
-	}
-
-	/**
 	 * Switch the state.
 	 * @param name
 	 */
 	static function switchState(name:Dynamic) {
-		if (display.hasProgram(program))
-		{
-			display.removeProgram(program);
-		}
+		// todo, add a 'dispose' function to State where you can clear the buffers and remove programs from the Display
+		// or you can have Display on the State and then remove that from peote-view during 'dispose'
 
 		State.current = null;
 
@@ -69,7 +53,6 @@ class Screen extends Display {
 		}
 
 		State.current = (name is Class) ? Type.createInstance(name, []) : name;
-		program = new Program(State.current);
-		display.addProgram(program);
+		
 	}
 }
