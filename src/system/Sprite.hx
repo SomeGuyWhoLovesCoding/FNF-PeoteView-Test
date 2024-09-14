@@ -113,7 +113,7 @@ class Sprite implements Element
 	/**
 	 * The sprite's buffer.
 	 */
-	static var buffer:Buffer<Sprite> = new Buffer<Sprite>(1, 400000000, true);
+	static var buffer:Buffer<Sprite>;
 
 	/**
 	 * The sprite's program.
@@ -146,6 +146,8 @@ class Sprite implements Element
 	 * Constructs a sprite.
 	 */
 	function new(x:Float, y:Float, z:Int = -1) {
+		Sprite.buffer = new Buffer<Sprite>(1, 400000000, true);
+
 		this.x = x;
 		this.y = y;
 
