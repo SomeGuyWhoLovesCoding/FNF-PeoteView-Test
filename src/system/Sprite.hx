@@ -20,7 +20,7 @@ class Sprite implements Element
 	@posY var y:Float;
 
 	/**
-	 * The sprite's z position.
+	 * The sprite's z index.
 	 */
 	@zIndex var z:Int;
 
