@@ -9,12 +9,12 @@ import sys.io.File;
 class TexturePool {
     static var pool:Map<String, Texture> = [];
 
-    static function createTexture(name:String, program:Program = null, path:String = "") {
+    static function createTexture(name:String, spr:Sprite = null, path:String = "") {
         if (pool.exists(name)) {
             return;
         }
 
-        if (program == null)
+        if (spr == null || spr.program == null)
         {
             return;
         }
@@ -23,7 +23,7 @@ class TexturePool {
         var textureData = TextureData.fromFormatPNG(textureBytes);
         var texture = new Texture(textureData.width, textureData.height, 1, {format: textureData.format});
         texture.setData(textureData);
-        program.setTexture(texture, name);
+        spr.program.setTexture(texture, name);
         pool.set(name, texture);
     }
 }

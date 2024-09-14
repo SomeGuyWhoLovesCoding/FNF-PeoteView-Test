@@ -16,7 +16,7 @@ class StartScreen extends State {
         logo = new Sprite();
 
         // init a texture in the program which the elements in the buffer will render
-        TexturePool.createTexture("test0", logo.program, "assets/test0.png");
+        TexturePool.createTexture("test0", logo, "assets/test0.png");
     }
 
     override function updateState(deltaTime:Int) {
