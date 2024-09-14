@@ -1,31 +1,19 @@
 package menus;
 
-import sys.io.File;
-
 /**
  * The start screen.
+ * This is a test state.
  */
+@:publicFields
 class StartScreen extends State {
-    var bg:Sprite;
-    var logo:Sprite;
-    
-    override function new() {
-        super();
+	var hi:Sprite;
 
-        bg = new Sprite();
-        logo = new Sprite();
+	function new() {
+		super();
 
-        // init a texture in the program which the elements in the buffer will render
-        TexturePool.createTexture("test0", logo, "assets/test0.png");
-    }
+		hi = new Sprite(30, 30);
+		hi.camera = Screen.camera;
 
-    override function updateState(deltaTime:Int) {
-        super.updateState(deltaTime);
-
-        logo.r += 3;
-    }
-
-    override function onKeyDown(keyCode, keyModifier) {
-        //trace(keyCode);
-    }
+		trace("This is a test");
+	}
 }
