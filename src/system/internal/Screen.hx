@@ -10,7 +10,7 @@ class Screen {
 	/**
 	 * The initial state.
 	 */
-	inline private static var initState:Class<State> = StartScreen;
+	private static var initState(default, null):State = new StartScreen();
 
 	/**
 	 * The view of the screen.
@@ -36,9 +36,9 @@ class Screen {
 
 	/**
 	 * Switch the state.
-	 * @param name
+	 * @param state
 	 */
-	static function switchState(name:Dynamic) {
+	static function switchState(state:State) {
 		// todo, add a 'dispose' function to State where you can clear the buffers and remove programs from the Display
 		// or you can have Display on the State and then remove that from peote-view during 'dispose'
 
@@ -52,7 +52,7 @@ class Screen {
 			GC.run();
 		}
 
-		State.current = (name is Class) ? Type.createInstance(name, []) : name;
+		State.current = state;
 		
 	}
 }

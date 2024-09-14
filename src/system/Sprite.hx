@@ -154,8 +154,8 @@ class Sprite implements Element
 			this.z = z;
 		}
 
-		program = new Program(buffer);
-		buffer.addElement(this);
+		program = new Program(Sprite.buffer);
+		Sprite.buffer.addElement(this);
 	}
 
 	/**

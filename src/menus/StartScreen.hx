@@ -12,7 +12,7 @@ class StartScreen extends State {
 		super();
 
 		hi = new Sprite(30, 30);
-		hi.camera = Screen.camera;
+		//hi.camera = Screen.camera;
 
 		trace("This is a test");
 	}

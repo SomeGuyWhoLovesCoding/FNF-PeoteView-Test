@@ -19,21 +19,19 @@ class State {
 	 */
 	static var useGC:Bool = false;
 
-	var sprites:Array<Sprite>;
-
 	/**
 	 * Constructs a state.
 	 */
-	function new() {
-		sprites = [];
-	}
+	function new() {}
 
 	/**
 	 * Updates the state.
 	 * @param deltaTime 
 	 */
 	function updateState(deltaTime:Int) {
-		Sprite.buffer.update();
+		if (Sprite.buffer != null) {
+			Sprite.buffer.update();
+		}
 	}
 
 	/**
